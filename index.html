@@ -6,11 +6,32 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <script src="script.js"></script>
+    <style>
+        #loader {
+            display: none;
+            border: 16px solid #f3f3f3;
+            border-radius: 50%;
+            border-top: 16px solid #3498db;
+            width: 120px;
+            height: 120px;
+            animation: spin 2s linear infinite;
+            margin: 20px auto;
+        }
+
+        @keyframes spin {
+            0% {
+                transform: rotate(0deg);
+            }
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+    </style>
 </head>
 
 <body>
     <input id="token" type="hidden" value="7DE952EDD879723FB1912CBF63F4F85C">
-    <input id="secret" type="hidden" value="DC8D0C1C9D54FCB4ECDC9F29D38F9B44">    
+    <input id="secret" type="hidden" value="DC8D0C1C9D54FCB4ECDC9F29D38F9B44">
     <label>Query </label><input id="query" type="text" value="пушистый кот в очках"><br>
     <label>Negative </label><input id="negative" type="text" value=""><br><br>
 
@@ -18,9 +39,12 @@
     <input id="height" type="text" value="512" size="5">
     <select id="style" type="text"></select><br><br>
     <button onclick="generate()">generate</button><br><br>
-    <img id="img" style="display: block;margin: 20px;">
-    <button id="downloadBtn" style="display: none;">Скачать изображение</button>
 
+    <!-- Индикатор загрузки -->
+    <div id="loader"></div>
+
+    <img id="img" style="display: block; margin: 20px;">
+    <button id="downloadBtn" style="display: none;">Скачать изображение</button>
 </body>
 
 </html>
